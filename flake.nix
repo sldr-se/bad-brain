@@ -15,6 +15,8 @@
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
             opentimestamps-client
+            jq
+            curl
           ];
 
           shellHook = ''

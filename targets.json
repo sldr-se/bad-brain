@@ -1,0 +1,138 @@
+{
+  "archival": [
+    {
+      "url": "https://github.com/memvid/memvid",
+      "type": "github",
+      "description": "Main memvid repository (core Rust library)"
+    },
+    {
+      "url": "https://github.com/memvid/claude-brain",
+      "type": "github",
+      "description": "Claude-brain plugin repository"
+    },
+    {
+      "url": "https://github.com/memvid/awesome-memvid",
+      "type": "github",
+      "description": "Awesome-memvid curated list"
+    },
+    {
+      "url": "https://github.com/memvid/memvid-extension",
+      "type": "github",
+      "description": "Memvid VSCode extension repository"
+    },
+    {
+      "url": "https://github.com/memvid",
+      "type": "github",
+      "description": "Memvid organization page"
+    },
+    {
+      "url": "https://www.npmjs.com/~memvid_ai",
+      "type": "npm",
+      "description": "Memvid npm organization/user profile"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk",
+      "type": "npm",
+      "package": "@memvid/sdk",
+      "description": "Main SDK package"
+    },
+    {
+      "url": "https://www.npmjs.com/package/memvid-cli",
+      "type": "npm",
+      "package": "memvid-cli",
+      "description": "CLI package (compiled Rust binary wrapper)"
+    },
+    {
+      "url": "https://www.npmjs.com/package/memvid-mind",
+      "type": "npm",
+      "package": "memvid-mind",
+      "description": "Memvid-mind package"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/cli-darwin-arm64",
+      "type": "npm",
+      "package": "@memvid/cli-darwin-arm64",
+      "description": "CLI binary for macOS ARM64"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/cli-win32-x64",
+      "type": "npm",
+      "package": "@memvid/cli-win32-x64",
+      "description": "CLI binary for Windows x64"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/cli-linux-x64",
+      "type": "npm",
+      "package": "@memvid/cli-linux-x64",
+      "description": "CLI binary for Linux x64"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk-darwin-arm64",
+      "type": "npm",
+      "package": "@memvid/sdk-darwin-arm64",
+      "description": "SDK binary for macOS ARM64"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk-darwin-x64",
+      "type": "npm",
+      "package": "@memvid/sdk-darwin-x64",
+      "description": "SDK binary for macOS x64"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk-linux-x64-gnu",
+      "type": "npm",
+      "package": "@memvid/sdk-linux-x64-gnu",
+      "description": "SDK binary for Linux x64 (GNU)"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk-win32-x64-msvc",
+      "type": "npm",
+      "package": "@memvid/sdk-win32-x64-msvc",
+      "description": "SDK binary for Windows x64 (MSVC)"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/sdk-linux-arm64-gnu",
+      "type": "npm",
+      "package": "@memvid/sdk-linux-arm64-gnu",
+      "description": "SDK binary for Linux ARM64 (GNU)"
+    },
+    {
+      "url": "https://www.npmjs.com/package/@memvid/cli-linux-arm64",
+      "type": "npm",
+      "package": "@memvid/cli-linux-arm64",
+      "description": "CLI binary for Linux ARM64"
+    },
+    {
+      "url": "https://memvid.com/",
+      "type": "web",
+      "description": "Memvid main website"
+    },
+    {
+      "url": "https://memvid.com/privacy",
+      "type": "web",
+      "description": "Privacy policy"
+    },
+    {
+      "url": "https://memvid.com/terms",
+      "type": "web",
+      "description": "Terms of service"
+    },
+    {
+      "url": "https://crates.io/crates/memvid-core",
+      "type": "crates",
+      "package": "memvid-core",
+      "description": "Rust crate on crates.io"
+    },
+    {
+      "url": "https://pypi.org/project/memvid-sdk/",
+      "type": "pypi",
+      "package": "memvid-sdk",
+      "description": "Python SDK on PyPI"
+    },
+    {
+      "url": "https://www.crunchbase.com/organization/memvid",
+      "type": "web",
+      "description": "Crunchbase company profile"
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+name: Scrape Metrics
+
+on:
+  schedule:
+    # Run every 12 hours at :00 (00:00 and 12:00 UTC)
+    - cron: '0 */12 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq curl
+          
+      - name: Install OpenTimestamps client
+        run: |
+          pip install opentimestamps-client
+          
+      - name: Scrape metrics
+        run: |
+          chmod +x archive.sh
+          ./archive.sh metrics
+          
+      - name: Timestamp CSV files
+        run: |
+          chmod +x upgrade-ots.sh
+          find analysis/metrics -name '*.csv' -type f -exec ots stamp {} \;
+          
+      - name: Commit and push changes
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add analysis/metrics/
+          git diff --staged --quiet || git commit -m "chore: update metrics $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push
