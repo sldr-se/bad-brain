@@ -14,10 +14,13 @@
       in {
         devShell = pkgs.mkShell {
           buildInputs = with pkgs; [
+            opentimestamps-client
           ];
 
           shellHook = ''
-            source .secrets
+            if [ -f .secrets ]; then
+              source .secrets
+            fi
           '';
         };
       }
