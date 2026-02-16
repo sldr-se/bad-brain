@@ -2,7 +2,8 @@
 
 The below is a roughly sorted list of analysis along with brief synopses.
 
-- [Summary](./summary.md): Starting point for this analysis
+- [summary.md](./summary.md): Rough starting point for this analysis
+- [cli.md](./cli.md): Analysis of `memvid-cli` npm package
 
 ## Metrics
 
