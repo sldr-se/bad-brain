@@ -112,7 +112,18 @@ $ file memvid
 memvid: ELF 64-bit LSB pie executable, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=2b0599c854076e0a1a7b017b4872b64eeedaed05, stripped
 ```
 
-So, this is indeed a precompiled binary of unknown provenance. The
+So this is, indeed, a binary of unknown provenance. The presence of Java/AWT
+libraries is notable:
+
+- `libjvm.so`, `libjava.so` - Java Virtual Machine components
+- `libawt*.so`, `libfontmanager.so`, `libfreetype.so` - Java graphics/font rendering
+- `libtika_native.so` - Apache Tika document parser
+
+The bundled README does mention, in passing, that "The CLI uses Apache Tika for
+document extraction", so this isn't concerning per se. It does, however, hint
+at the binary --- whatever it is --- running an embedded JVM.
+
+The
 [`@memvid/cli-linux-x64`](https://www.npmjs.com/package/@memvid/cli-linux-x64)
 npm page, as well as the included `package.json` file, once again notes this
 package as under the Apache 2.0 license, yet the repository URL once more
@@ -548,7 +559,7 @@ _I was never informed up-front about this telemetry_.
 This analysis of `memvid-cli` version 2.0.157 has identified the following
 problems:
 
-### 1. Apache 2.0 License Violation
+### 1. Apache 2.0 License Nullity
 
 The `memvid-cli` package and all platform-specific packages (e.g.,
 `@memvid/cli-linux-x64`) claim to be licensed under Apache 2.0 and reference
