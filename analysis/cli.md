@@ -37,3 +37,44 @@ deceptive at worst, since that repository does not appear to contain the source
 code for the `memvid-cli` package. `memvid/memvid` _is_ under Apache 2.0 as
 well, but insofar as the `memvid-cli` package is concerned, that is still
 meaningless; it is source code, yes, but not the right source code.
+
+## Package structure and the executable
+
+The `memvid-cli` package itself (delivered under
+`node_modules/memvid-cli/bin/memvid`) is a thin wrapper that acts as a platform
+binary dispatcher. The main executable (approximately 90 lines of Node.js code)
+performs the following tasks:
+
+1. Identifies the current operating system and architecture (e.g.,
+   `darwin-arm64`, `linux-x64`, `win32-x64`).
+
+2. Maps the detected platform to a corresponding platform-specific npm package:
+   - `@memvid/cli-darwin-arm64`
+   - `@memvid/cli-darwin-x64`
+   - `@memvid/cli-linux-x64`
+   - `@memvid/cli-win32-x64`
+
+3. Searches multiple possible paths to locate the actual native binary within
+   the platform-specific package (accounting for different npm/pnpm
+   installation structures).
+
+4. Sets up dynamic library search paths before spawning the binary:
+   - `LD_LIBRARY_PATH` on Linux
+   - `DYLD_LIBRARY_PATH` on macOS
+
+   This indicates the binary has dynamic library dependencies that are shipped
+   alongside it in the platform-specific packages.
+
+5. Executes the native binary as a child process, passing through all
+   command-line arguments and inheriting stdio.
+
+The actual CLI implementation is not JavaScript or TypeScript code, but rather
+a compiled native binary (likely Rust, given the `memvid/memvid` repository is
+predominantly Rust). The `memvid-cli` package serves only as an installation
+and dispatch mechanism.
+
+### Notes
+
+This, in and of itself, isn't a problem --- I am informed using npm to vendor
+precompiled binaries in this manner is relatively common. The open question,
+however, is if the binary's source is available.
