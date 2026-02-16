@@ -143,7 +143,7 @@ scrape_crates() {
     jq -r '.archival[] | select(.type=="crates" and has("package")) | .package' "$TARGETS_FILE" | while read -r crate; do
         echo -e "\033[1;34mFetching: $crate\033[0m"
 
-        response=$(curl -s "https://crates.io/api/v1/crates/$crate")
+        response=$(curl -s -A "bad-brain-metrics/1.0 (https://github.com/sldr/bad-brain)" "https://crates.io/api/v1/crates/$crate")
         total=$(echo "$response" | jq -r '.crate.downloads // "N/A"')
         recent=$(echo "$response" | jq -r '.crate.recent_downloads // "N/A"')
 
