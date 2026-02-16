@@ -20,6 +20,8 @@ investigation proceeds.
 
 - **[analysis/](./analysis/)** - Technical analysis, GDPR assessment, code
   examination
+  - **[metrics/](./analysis/metrics/)** - Harvested metrics of GitHub
+    repository stats, npm, PyPi, and crates.io download stats.
 - **[screenshots/](./screenshots/)** - npm download stats, GitHub star graphs,
   evidence captures, as and where applicable
 - **[comms/](./comms/)** - Email correspondence, formal requests, responses
@@ -35,8 +37,47 @@ Key files are timestamped using [OpenTimestamps](https://opentimestamps.org/)
 to establish verifiable proof of existence. Files with `.ots` extensions are
 timestamp proofs that can be independently verified.
 
+### Verifying a timestamp
+
+Any `.ots` file can be verified via
+
+```sh
+ots verify path/to/file.ext.ots
+```
+
+Note that this requires running a local Bitcoin node, since the attestations
+are pinned against the Bitcoin blockchain. If you, like me, aren't running a
+local BTC node, you can
+
+```sh
+ots --no-bitcoin verify path/to/file.ext.ots
+```
+
+And then lookup the block information returned to verify the information.
+
+For your (and my) convenience, there is a `verify-ots.sh` script in the root of
+this repository which automates this checking process by getting the block
+information from `blockstream.info`. You can run this script either by giving
+it the path to an `.ots` file, which will be checked or, if called without a
+path, it will check all `.ots` files in the repository. Note that this process
+can take a while.
+
 ## Status
 
 This is an active investigation. Evidence is being collected, timestamped, and
 documented as it becomes available. Structure may evolve/change as further
 discoveries are made.
+
+## Automation
+
+Certain parts of this investigation are automated via GitHub Actions
+(reviewable in the `.github/workflows` directory). Specifically:
+
+- Once a day, around 03:00 UTC, `archive.sh web` is called, sending all targets
+  in `targets.json` to the Internet Archive.
+- Twice a day, around 00:00 and 12:00 UTC, `archive.sh metrics` is called,
+  harvesting API metrics and updating the CSV and timestamp files under
+  `analysis/metrics`.
+- Twice a day, around 06:00 and 18:00 UTC, `upgrade-ots.sh` is called,
+  upgrading all OTS timestamps (i.e. noting in the `.ots` file if they have been
+  pinned against a BTC block).
