@@ -81,3 +81,29 @@ Certain parts of this investigation are automated via GitHub Actions
 - Twice a day, around 06:00 and 18:00 UTC, `upgrade-ots.sh` is called,
   upgrading all OTS timestamps (i.e. noting in the `.ots` file if they have been
   pinned against a BTC block).
+
+## License
+
+This work is licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+This means you are free to:
+
+- Share, copy, and redistribute the material in any medium or format for any
+  purpose, even commercially.
+- Adapt, remix, transform, and build upon the material for any purpose, even
+  commercially.
+
+As long as you:
+
+- You must give [appropriate
+  credit](https://creativecommons.org/licenses/by-sa/4.0/#ref-appropriate-credit),
+  provide a link to the license, and indicate if changes were made. You may do
+  so in any reasonable manner, but not in any way that suggests that I (the
+  licensor) endorse you or your use.
+
+- If you remix, transform, or build upon the material, you must distribute your
+  contributions under the same license as the original.
+
+---
+
+Copyright (c) 2026 Jonas A. Hultén / `sldr-se` / `sldr`
