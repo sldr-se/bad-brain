@@ -95,10 +95,10 @@ This means you are free to:
 
 As long as you:
 
-- You must give [appropriate
+- Give [appropriate
   credit](https://creativecommons.org/licenses/by-sa/4.0/#ref-appropriate-credit),
-  provide a link to the license, and indicate if changes were made. You may do
-  so in any reasonable manner, but not in any way that suggests that I (the
+  provide a link to the license, and indicate if changes were made. You may do so
+  in any reasonable manner, but not in any way that suggests that I (the
   licensor) endorse you or your use.
 
 - If you remix, transform, or build upon the material, you must distribute your
