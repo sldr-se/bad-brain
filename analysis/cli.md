@@ -542,3 +542,71 @@ I/O error: No such file or directory (os error 2)
 
 I can at least report that that seems to work. That's faint praise, however, as
 _I was never informed up-front about this telemetry_.
+
+## Summary of Issues
+
+This analysis of `memvid-cli` version 2.0.157 has identified the following
+problems:
+
+### 1. Apache 2.0 License Violation
+
+The `memvid-cli` package and all platform-specific packages (e.g.,
+`@memvid/cli-linux-x64`) claim to be licensed under Apache 2.0 and reference
+the `memvid/memvid` GitHub repository as their source. However:
+
+- The referenced repository does not contain the source code for the CLI binary
+- The repository contains only the `memvid-core` Rust library, which lacks any
+  CLI-building dependencies (no `clap`, `structopt`, etc.), so _cannot reasonably
+  be_ the source code for the CLI binaries
+- README content from the CLI packages does not appear in the referenced
+  repository
+- Without access to the source code, the Apache 2.0 license is meaningless ---
+  users cannot exercise their rights to create derivative works, audit the code,
+  or verify its behavior
+
+### 2. Undisclosed Telemetry
+
+The CLI binary makes network connections to `https://memvid.com/` on every
+invocation, including for operations on non-existent files. This telemetry
+behavior:
+
+- Is **not mentioned** in `memvid --help`
+- Is **not mentioned** in the `memvid-cli` README
+- Is **not mentioned** in the `memvid/memvid` repository README
+- Can only be disabled via an undocumented environment variable
+  (`MEMVID_TELEMETRY=0`) that appears _only_ in online documentation
+- Directly contradicts claims in the `memvid/memvid` README that the software
+  "works fully offline" and is "infrastructure-free"
+
+### 3. Undisclosed Commercial Service
+
+The CLI's telemetry debug output reveals references to "free tier limits" and
+the package README mentions a `MEMVID_API_KEY` environment variable "for
+capacity beyond the free tier." This indicates:
+
+- Usage tracking and rate limiting are occurring
+- A commercial service tier exists --- this is corroborated by the current
+  memvid.com page
+- Neither the free tier limitations nor the commercial service are disclosed in
+  the primary documentation
+
+### 4. GDPR and Data Protection Concerns
+
+The combination of undisclosed telemetry, lack of source code access, and
+absence of informed consent creates significant data protection issues:
+
+- Users are not informed that their usage data is being transmitted
+- There is no privacy policy referenced in the CLI or its documentation
+- Without source code, users cannot verify what data is being collected or how
+  it is processed
+- The opt-out mechanism requires knowledge of an environment variable not
+  disclosed in standard documentation
+
+For the avoidance of any ambiguity, I will note that there _is_ a [privacy
+policy](https://memvid.com/privacy.) on the official site. However, this policy
+is not mentioned in the documentation, nor is _any_ consent retrieved for the
+user prior to telemetry being sent. This is a _gross_ violation of the GDPR
+which requires explicit consent and clearly stated purposes for collection and
+processing. Memvid, Inc., while a US (Tennessee) corporation, is not exempt
+from the GDPR; it applies to _all_ subjects residing in the European Union ---
+such as myself.
