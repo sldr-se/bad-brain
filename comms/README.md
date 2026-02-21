@@ -9,6 +9,20 @@ OTS (see [top level README](../README.md)).
 Threading and additional context is provided in this document, allowing the
 individual message files to fully and solely represent a message.
 
+The emails may have been modified from their raw copy-paste state in order to
+preserve formatting and introduce proper line wrapping. The content is
+materially unchanged, except concerning redactions, as mentioned below.
+
+## Thread 1: Initial questions (Feb 12, 2026)
+
+1. [2026-02-12 - Initial email](./260212-1325-initial-email.md). My first
+   contact with Memvid, reaching out in good faith to seek help regarding some
+   strange behavior from their CLI. I was, at the time, attempting to fork and
+   debug `claude-brain` and was using the CLI to inspect the `.mv2` files, which
+   was consistently failing. It was, when running the CLI with verbose flags that
+   I first noticed the phone-home, as documented in the [CLI
+   analysis](../analysis/cli.md).
+
 ## Note on redactions
 
 Personal contact information (private email addresses, direct phone numbers,
