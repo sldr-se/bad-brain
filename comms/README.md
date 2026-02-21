@@ -26,6 +26,11 @@ materially unchanged, except concerning redactions, as mentioned below.
    answering my questions about the versioning inconsistencies, yet making no
    mention about the telemetry or source code.
 
+## Thread 2: GDPR Data Subject Access Request
+
+1. [2026-02-21 - Request](./260221-1809-dsar.md). Formal Data Subject Access
+   Request under GDPR's Article 15.
+
 ## Note on redactions
 
 Personal contact information (private email addresses, direct phone numbers,
