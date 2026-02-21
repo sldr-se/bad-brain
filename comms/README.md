@@ -32,6 +32,9 @@ materially unchanged, except concerning redactions, as mentioned below.
    Request under GDPR's Article 15.
 2. [2026-02-21 - Reply](./260221-1817-dsar-reply.md). Memvid's reply, less than
    ten minutes later. Flat out denial of any personal data processed.
+3. [2026-02-21 - Rebuttal](./260221-1839-dsar-refutation.md). My reply,
+   re-stating that their CLI does, in fact, phone home and they should probably
+   explain that.
 
 ## Note on redactions
 
