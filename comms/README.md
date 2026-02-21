@@ -35,6 +35,9 @@ materially unchanged, except concerning redactions, as mentioned below.
 3. [2026-02-21 - Rebuttal](./260221-1839-dsar-refutation.md). My reply,
    re-stating that their CLI does, in fact, phone home and they should probably
    explain that.
+4. [2026-02-21 - Reply](./260221-1859-dsar-reply-2.md). Memvid's reply,
+   admitting --- at last --- that the CLI does, indeed, phone home and explains
+   why; ostensibly to do with license checks.
 
 ## Note on redactions
 
