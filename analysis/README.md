@@ -4,6 +4,10 @@ The below is a roughly sorted list of analysis along with brief synopses.
 
 - [summary.md](./summary.md): Rough starting point for this analysis
 - [cli.md](./cli.md): Analysis of `memvid-cli` npm package
+- [brain.md](./brain.md): Analysis of `claude-brain` Claude Code plugin
+- [sdk.md](./sdk.md): Analysis of `@memvid/sdk` npm package. This analysis is
+  of particular note as it outlines the scope of the telemetry at issue and how
+  it interacts with the GDPR.
 
 ## Metrics
 
