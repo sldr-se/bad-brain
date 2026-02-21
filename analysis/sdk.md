@@ -220,3 +220,197 @@ import { isTelemetryEnabled, flushAnalytics } from "@memvid/sdk";
 ```
 
 However, these are not documented in the README or API documentation.
+
+## GDPR Implications
+
+I will preface this section by stating that I --- `sldr` --- am a resident of
+Sweden and, as such, a data subject covered by the GDPR (General Data
+Protection Regulation, [EU
+2016/679](https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:32016R0679)).
+Depending on who you are and where you are, you may be subject to other data
+protection regulations (for better or worse), but for this analysis, I will be
+looking at the GDPR specifically.
+
+As a disclaimer, I will be skating over some of the verbose legal language,
+especially definitions of terms. I will, however, cite my sources; e.g. "Art.
+2(2)" refers to GDPR Article 2, section 2. By all means, check my work.
+
+### Applicability
+
+A first, obvious argument is that Memvid, Inc. is a Tennessee, USA corporation,
+so why would they be subject to EU law? Unfortunately, the GDPR applies as soon
+as you process "personal data" (as we will discuss later) of a "data subject"
+(read: a "natural person", per Art. 4) who is inside the EU. Specifically, per
+Art. 3(2):
+
+> This Regulation applies to the processing of personal data [...] where the
+> processing activities are related to:
+> (a) the offering of goods or services, irrespective of whether a payment of
+> the data subject is required, to such data subjects in the Union; or
+> (b) the monitoring of their behaviour as far as their behaviour takes place
+> within the Union.
+
+Decoding the legalese, since Memvid, Inc. is processing personal data of an EU
+person --- or, monitoring their behavior, as may be more applicable in the case
+of telemetry --- **the GDPR applies**.
+
+Further, Memvid's `claude-brain` plugin is distributed globally via GitHub with
+no geographic restrictions. It is therefore **inevitable** that EU residents
+have or will install and use it, bringing their data processing squarely within
+GDPR scope. The same argument also applies to any third-party application
+developed using Memvid's SDKs, where the developer is --- most likely
+unknowingly --- sending telemetry on all _their_ users back to Memvid.
+
+### Anonymisation
+
+The next argument is that, per what we have seen in the SDK code above, Memvid
+is not _directly_ harvesting my hostname, IP, username, file paths, or
+contents. The user fingerprint is calculated using SHA256 of an amalgamation of
+the hostname, username, and --- interestingly --- home directory, and the file
+paths are similarly hashed. SHA256 is --- insofar as modern cryptography is
+aware --- irreversible, meaning that my username, hostname, etc. can't be
+re-derived from the hash.
+
+The question at hand is: _does this sufficiently anonymise the data?_ Note that
+we're ignoring, for the time being, the lack of consent to collection --- which
+is necessary even for anonymised data collection --- and the fact that we have
+no idea what the binary blob part of the SDK is collecting/doing.
+
+Art. 4(5) defines "**pseudonymisation**" as
+
+> [...] the processing of personal data in such a manner that the personal data
+> can no longer be attributed to a specific data subject without the use of
+> additional information ...
+
+By my read, this does **not** hold. The host fingerprint is deterministic; for
+the same user on the same system --- which is how most of us work --- the
+fingerprint will be the same. No, you can't directly link the fingerprint to
+me, the human person, but you _can_ see that two different records come from
+the same host fingerprint and, thus, conclude that they are from the same
+person.
+
+Recital 26 specifically notes (emphasis added)
+
+> The principles of data protection should apply to any information concerning
+> an identified or identifiable natural person. Personal data which have
+> undergone pseudonymisation, which could be attributed to a natural person by
+> the use of additional information should be considered to be information on
+> an identifiable natural person. To determine whether a natural person is
+> identifiable, account should be taken of **all the means reasonably likely to
+> be used, such as singling out**, either by the controller or by another
+> person to identify the natural person directly or indirectly. [...]
+
+What this means is that being able to _single out_ a natural person, even if
+you can't strictly identify them, is enough to be considered "identifiable"
+and, thus, covered under the GDPR. Specifically, Memvid can filter their
+records on a specific fingerprint and, thus, isolate --- _single out_ --- a
+specific user on a specific machine. Per the above recital, that _explicitly_
+means "**the principles of data protection should apply**".
+
+The [Article 29 Working Party Opinion
+05/2014](https://ec.europa.eu/justice/article-29/documentation/opinion-recommendation/files/2014/wp216_en.pdf)
+further expands on this in the Executive Summary, noting
+
+> [...] [P]seudonymisation is not a method of anonymisation. It merely reduces
+> the linkability of a dataset with the original identity of a data subject,
+> and is accordingly a useful security measure.
+
+This is correct --- Memvid is saving themselves a security headache by _not_
+directly storing my hostname, username, and so on. This does _not_, however,
+mean that the data is anonymised, since it is still linkable to me and my
+activity.
+
+As a final remark, the anonymisation argument collapses completely for paid
+users. Per the SDK code, a paid user's fingerprint is derived from their
+`MEMVID_API_KEY` --- a value which _by necessity_ must be both _known_ and
+_identifiable_ by Memvid, allowing _direct_ linkage of collected telemetry to a
+user/subscriber.
+
+#### In brief
+
+The SDK's method of pseudonymisation of the data is **not** sufficient to
+anonymise the data. The host/user fingerprinting allows "singling out" users,
+even if they are not directly identifiable, meaning **data protection
+applies**. Doubly so for paid users (ironically), where --- due to how their
+fingerprint is generated --- their activity is _directly_ linkable to a data
+subject or, at the least, a subscriber.
+
+Ergo: **the GDPR applies**.
+
+### Lawful basis and consent
+
+Having --- in my opinion --- established that the GDPR applies, let's next look
+at if Memvid are allowed to collect the kind of data they are collecting.
+
+Art. 6(1) defines the _exhaustive_ list of conditions under which "processing"
+(which, per Art. 4(2) covers just about every verb you can think of, explicitly
+including "collection" and "recording") is lawful. Let's walk through it and
+see.
+
+- (a) **Consent**: No. As we've established, the telemetry is never mentioned
+  or disclosed, nor is any consent collected, even under the thinnest of "implied
+  consent" premises. Providing an _undocumented_ opt-out is not active consent.
+- (b) **Performance of a contract**: Not applicable.
+- \(c\) **Legal compliance**: No. Memvid, Inc. is under no legal obligation to
+  collect this data.
+- (d) **Protection of data subject's vital interests**: No. Almost the direct
+  opposite.
+- (e) **Performance of public interest or official authority**: No.
+- (f): **Legitimate interest**: This isn't such a straightforward answer, as
+  "legitimate interest" is a pretty broad term, and has seen _plenty_ of abuse.
+  However, Recital 39 includes the following:
+
+  > Any processing of personal data should be lawful and fair. It should be
+  > transparent to natural persons that personal data concerning them are
+  > collected, used, consulted or otherwise processed and to what extent the
+  > personal data are or will be processed. [...] Natural persons should be
+  > made aware of risks, rules, safeguards and rights in relation to the
+  > processing of personal data and how to exercise their rights in relation to
+  > such processing. In particular, the specific purposes for which personal
+  > data are processed should be explicit and legitimate and determined at the
+  > time of the collection of the personal data.
+
+  Memvid's processing very clearly fails this transparency requirement, meaning
+  that even if they have (or claim to have) "legitimate interests", that is
+  void since the data subject was never made aware of the collection in the
+  first place.
+
+Recital 40 covers a general "is this lawful" question:
+
+> In order for processing to be lawful, personal data should be processed on
+> the basis of the consent of the data subject concerned or some other
+> legitimate basis, laid down by law, either in this Regulation or in other
+> Union or Member State law as referred to in this Regulation, including the
+> necessity for compliance with the legal obligation to which the controller is
+> subject or the necessity for the performance of a contract to which the data
+> subject is party or in order to take steps at the request of the data subject
+> prior to entering into a contract.
+
+Expanding on the point of "consent", we can look to Art. 7. Art. 7(1) requires
+that the controller (Memvid, Inc. in this case, per Art. 4(7) definition of
+"controller") be able to demonstrate that the data subject consented to the
+processing, which they cannot. Art. 7(4) further notes that consent shall be
+_freely given_, and notes that "utmost account shall be taken" if the
+processing is necessary for the provision of a service --- the fact that
+Memvid's SDK and CLI include the opt-out environment variable and continue
+operating when telemetry is disabled clearly shows that the collection is
+**not** necessary for the service to function.
+
+To underscore that "implicit consent" is _not_ an argument, we look to Recital
+32 (emphasis added):
+
+> Consent should be given by a clear affirmative act establishing a freely
+> given, specific, informed and unambiguous indication of the data subject's
+> agreement to the processing of personal data relating to him or her [...]
+> Silence, pre-ticked boxes or inactivity **should not therefore constitute
+> consent**. [...]
+
+#### In brief
+
+It follows from Art. 6(1) and Recitals 39 and 40 that there exists **no purpose**
+--- stated, legitimate, or otherwise --- for Memvid's collection of user data.
+It follows further from Art. 7(1), 7(4), and Recital 32 that consent to
+collection has **not** been given for collection.
+
+It _must_ therefore follow that Memvid's collection of user data via their
+telemetry is **not lawful**.
