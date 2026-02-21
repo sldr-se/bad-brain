@@ -414,3 +414,57 @@ collection has **not** been given for collection.
 
 It _must_ therefore follow that Memvid's collection of user data via their
 telemetry is **not lawful**.
+
+### Rights of the data subject
+
+There are additional angles I could pursue to point out that this processing is
+unlawful, but I believe I have made my point. So I will instead turn to what my
+rights are as a data subject; rights which I intend to exercise.
+
+Art 13(1) outlines the information that the controller --- Memvid, Inc. --- are
+required to provide to me, the data subject. This includes the identity of the
+controller, purposes for processing _including_ the legal basis for said
+processing and --- explicitly --- where such processing is based on legitimate
+interests, any downstream recipients, and intention to transfer personal data,
+if applicable. It should not come as a surprise that this information is
+_nowhere_ in any of the READMEs.
+
+In order to be as fair as possible, I _will_ note that there is a [Privacy
+Policy](https://memvid.com/privacy) on Memvid's website (archived versions
+available via the [Internet Archive](https://web.archive.org/)) which _does_
+outline some of this information, including contact information for GDPR
+inquiries. That said, this privacy policy is only available from the footer of
+their webpage and is --- notably --- not mentioned anywhere in `memvid/memvid`,
+`claude-brain`, or any SDK README or other documentation. And, even though this
+policy outlines collection, it's still unlawful on the basis of no explicit
+consent.
+
+Articles 15, 16, and 17 outline the data subject's right to access, correct
+("rectify"), and erase (the "right to be forgotten") collected data. I intend
+to attempt to exercise these rights and see where it gets me. Per Art. 12(3)
+the controller has **no more than** one month to reply to such a request.
+
+## Summary
+
+Above, we have covered how the `@memvid/sdk` includes an extensive analytics
+framework, harvesting extensive information about _who_ is using it, _what_
+they are doing, and _when_. This telemetry is on-by-default and is only
+possible to disable by means of an _entirely_ undocumented environment
+variable. Further, since the SDK relies on a precompiled binary component ---
+ostensibly licensed under Apache 2.0 but with no source seemingly available ---
+there is no telling if there is additional telemetry happening there, and
+whether that telemetry honors the environment variable.
+
+Having established the scope and contents of the telemetry, I have walked
+through whether this telemetry is permissible under the GDPR. I believe I have
+made a solid case for the conclusion that this collection is **not lawful**,
+based on the lack of explicit consent, lack of information regarding scope and
+purpose of collection, and insufficient anonymisation.
+
+This pattern of undisclosed data collection --- as evidenced across both the
+CLI and the SDK --- combined with misleading claims in Memvid's various READMEs
+of their software being "100% local" and requiring "no API keys" suggests a
+broader issue of transparency and good faith in Memvid's operations. I will be
+asserting my rights under the GDPR against Memvid, Inc. and will be very
+interested to see how they respond. More information on that will be found
+later under [comms](../comms/).
