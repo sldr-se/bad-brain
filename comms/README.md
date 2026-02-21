@@ -30,6 +30,8 @@ materially unchanged, except concerning redactions, as mentioned below.
 
 1. [2026-02-21 - Request](./260221-1809-dsar.md). Formal Data Subject Access
    Request under GDPR's Article 15.
+2. [2026-02-21 - Reply](./260221-1817-dsar-reply.md). Memvid's reply, less than
+   ten minutes later. Flat out denial of any personal data processed.
 
 ## Note on redactions
 
