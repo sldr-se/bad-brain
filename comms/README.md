@@ -22,6 +22,9 @@ materially unchanged, except concerning redactions, as mentioned below.
    was consistently failing. It was, when running the CLI with verbose flags that
    I first noticed the phone-home, as documented in the [CLI
    analysis](../analysis/cli.md).
+2. [2026-02-13 - Memvid reply](./260213-0149-memvid-reply.md). Memvid's reply,
+   answering my questions about the versioning inconsistencies, yet making no
+   mention about the telemetry or source code.
 
 ## Note on redactions
 
