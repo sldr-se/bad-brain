@@ -38,6 +38,11 @@ materially unchanged, except concerning redactions, as mentioned below.
 4. [2026-02-21 - Reply](./260221-1859-dsar-reply-2.md). Memvid's reply,
    admitting --- at last --- that the CLI does, indeed, phone home and explains
    why; ostensibly to do with license checks.
+5. [2026-02-22 - Reiteration](./260222-1547-dsar-reiteration.md). My reply,
+   asking them to explain the contradiction between their two responses --- do
+   you or do you not send network traffic --- and asking why supposed "license
+   verification" is disabled when a telemetry opt-out is used. Reiterates that the
+   DSAR is alive and the clock is ticking.
 
 ## Note on redactions
 
