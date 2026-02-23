@@ -17,3 +17,5 @@ noted.
   `memvid-cli`. Captured 2026-02-15 ca. 20.10.
 - [./260215-sdk.png](./260215-sdk.png): Screenshot of NPM page for
   `@memvid/sdk`. Captured 2026-02-15 ca. 20.10.
+- [./260220-pricing.png](./260220-pricing.png); Screenshot of the Memvid
+  pricing page. Captured 2026-02-20 ca 15.50.
