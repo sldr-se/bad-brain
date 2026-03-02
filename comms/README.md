@@ -28,21 +28,21 @@ materially unchanged, except concerning redactions, as mentioned below.
 
 ## Thread 2: GDPR Data Subject Access Request
 
-1. [2026-02-21 - Request](./260221-1809-dsar.md). Formal Data Subject Access
-   Request under GDPR's Article 15.
-2. [2026-02-21 - Reply](./260221-1817-dsar-reply.md). Memvid's reply, less than
-   ten minutes later. Flat out denial of any personal data processed.
-3. [2026-02-21 - Rebuttal](./260221-1839-dsar-refutation.md). My reply,
-   re-stating that their CLI does, in fact, phone home and they should probably
-   explain that.
-4. [2026-02-21 - Reply](./260221-1859-dsar-reply-2.md). Memvid's reply,
-   admitting --- at last --- that the CLI does, indeed, phone home and explains
-   why; ostensibly to do with license checks.
-5. [2026-02-22 - Reiteration](./260222-1547-dsar-reiteration.md). My reply,
-   asking them to explain the contradiction between their two responses --- do
-   you or do you not send network traffic --- and asking why supposed "license
-   verification" is disabled when a telemetry opt-out is used. Reiterates that the
-   DSAR is alive and the clock is ticking.
+1. [2026-02-21 - Request](./260221-1709-dsar-corrected.md). Formal Data Subject
+   Access Request under GDPR's Article 15.
+2. [2026-02-21 - Reply](./260221-1717-dsar-reply-corrected.md). Memvid's reply,
+   less than ten minutes later. Flat out denial of any personal data processed.
+3. [2026-02-21 - Rebuttal](./260221-1739-dsar-refutation-corrected.md). My
+   reply, re-stating that their CLI does, in fact, phone home and they should
+   probably explain that.
+4. [2026-02-21 - Reply](./260221-1759-dsar-reply-2-corrected.md). Memvid's
+   reply, admitting --- at last --- that the CLI does, indeed, phone home and
+   explains why; ostensibly to do with license checks.
+5. [2026-02-22 - Reiteration](./260222-1447-dsar-reiteration-corrected.md). My
+   reply, asking them to explain the contradiction between their two responses
+   --- do you or do you not send network traffic --- and asking why supposed
+   "license verification" is disabled when a telemetry opt-out is used. Reiterates
+   that the DSAR is alive and the clock is ticking.
 
 ## Note on redactions
 
