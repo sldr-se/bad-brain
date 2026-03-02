@@ -1,15 +1,17 @@
 # bad-brain
 
-This repository documents issues with the `memvid/claude-brain` plugin and the
-`memvid` project in general, including potential GDPR violations, Apache 2.0
-license non-compliance, and deceptive marketing practices.
+This repository documents and gathers evidence regarding the `memvid` suite of
+projects, specifically their pernicious use of undisclosed telemetry --- in
+violation of the GDPR --- questionable use of the Apache 2.0 license, and
+deceptive marketing practices.
 
 ## What This Is
 
 A public evidence repository for:
 
 - Undisclosed telemetry in software marketed as "100% local"
-- Failure to provide source code despite Apache 2.0 licensing
+- Unavailable source code for packages licensed under Apache 2.0, rendering
+  that license moot
 - Potential GDPR violations (data processing without consent/disclosure)
 - Suspicious GitHub metrics patterns
 
@@ -26,10 +28,15 @@ investigation proceeds.
   evidence captures, as and where applicable
 - **[comms/](./comms/)** - Email correspondence, formal requests, responses
 
-## Start Here
+## Recommended starting point
 
-Read **[analysis/summary.md](./analysis/summary.md)** for a high-level overview
-of the issues.
+The main analysis, including my analysis of GDPR implications, is the [SDK
+analyis](./analysis/sdk.md). This is my recommended starting point.
+
+For a broader, at-the-time-of-writing accurate overview of the purpose and
+scope of this investigation, see the [Overview](./overview.md). I will update
+this document periodically to reflect the current state of the investigation,
+in my own words.
 
 ## Timestamping
 
@@ -77,7 +84,8 @@ Certain parts of this investigation are automated via GitHub Actions
   in `targets.json` to the Internet Archive.
 - Twice a day, around 00:00 and 12:00 UTC, `archive.sh metrics` is called,
   harvesting API metrics and updating the CSV and timestamp files under
-  `analysis/metrics`.
+  `analysis/metrics`. Since the Internet can be flaky, this workflow has been
+  allowed to retry on failure.
 - Twice a day, around 06:00 and 18:00 UTC, `upgrade-ots.sh` is called,
   upgrading all OTS timestamps (i.e. noting in the `.ots` file if they have been
   pinned against a BTC block).
