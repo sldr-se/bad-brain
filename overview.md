@@ -41,15 +41,16 @@ reference to a `MEMVID_TELEMETRY` environment variable which, when set to `0`,
 silenced the phone-home.
 
 It was at this point I sent my initial email to Memvid (see [Initial
-Email](./comms/260212-1325-initial-email.md)), asking both about the version
-discrepancies and the undisclosed telemetry, as well as where I might find the
-source code for the SDK --- it's marked as being under Apache 2.0, but I can't
-find its source anywhere. I also had Claude weed through the `claude-brain`
-node_modules directory, looking for other hints of telemetry. It found a
-full-fledged telemetry suite (see the [SDK analysis](./analysis/sdk.md)), which
-led me to decide to start this investigation, only reinforced by [Memvid's
-reply](./comms/260213-0149-memvid-reply.md) conveniently not responding to my
-question about the telemetry or the source code.
+Email](./comms/260212-1325-initial-email-corrected.md.md)), asking both about
+the version discrepancies and the undisclosed telemetry, as well as where I
+might find the source code for the SDK --- it's marked as being under Apache
+2.0, but I can't find its source anywhere. I also had Claude weed through the
+`claude-brain` node_modules directory, looking for other hints of telemetry. It
+found a full-fledged telemetry suite (see the [SDK
+analysis](./analysis/sdk.md)), which led me to decide to start this
+investigation, only reinforced by [Memvid's
+reply](./comms/260213-0049-memvid-reply-corrected.md.md) conveniently not
+responding to my question about the telemetry or the source code.
 
 ## Outside the code
 
