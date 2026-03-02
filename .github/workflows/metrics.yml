@@ -24,9 +24,16 @@ jobs:
           pip install opentimestamps-client
 
       - name: Scrape metrics
-        run: |
-          chmod +x archive.sh
-          ./archive.sh metrics
+        uses: nick-fields/retry@v3
+        with:
+          timeout_minutes: 10
+          max_attempts: 3
+          retry_wait_seconds: 60
+          command: |
+            chmod +x archive.sh
+            ./archive.sh metrics
+          on_retry_command: |
+            git clean -ffdx && git reset --hard HEAD
 
       - name: Timestamp CSV files
         run: |
