@@ -15,16 +15,16 @@ materially unchanged, except concerning redactions, as mentioned below.
 
 ## Thread 1: Initial questions (Feb 12, 2026)
 
-1. [2026-02-12 - Initial email](./260212-1325-initial-email.md). My first
-   contact with Memvid, reaching out in good faith to seek help regarding some
-   strange behavior from their CLI. I was, at the time, attempting to fork and
-   debug `claude-brain` and was using the CLI to inspect the `.mv2` files, which
-   was consistently failing. It was, when running the CLI with verbose flags that
-   I first noticed the phone-home, as documented in the [CLI
+1. [2026-02-12 - Initial email](./260212-1325-initial-email-corrected.md). My
+   first contact with Memvid, reaching out in good faith to seek help regarding
+   some strange behavior from their CLI. I was, at the time, attempting to fork
+   and debug `claude-brain` and was using the CLI to inspect the `.mv2` files,
+   which was consistently failing. It was, when running the CLI with verbose flags
+   that I first noticed the phone-home, as documented in the [CLI
    analysis](../analysis/cli.md).
-2. [2026-02-13 - Memvid reply](./260213-0149-memvid-reply.md). Memvid's reply,
-   answering my questions about the versioning inconsistencies, yet making no
-   mention about the telemetry or source code.
+2. [2026-02-13 - Memvid reply](./260213-0049-memvid-reply-corrected.md).
+   Memvid's reply, answering my questions about the versioning inconsistencies,
+   yet making no mention about the telemetry or source code.
 
 ## Thread 2: GDPR Data Subject Access Request
 
@@ -50,3 +50,11 @@ Personal contact information (private email addresses, direct phone numbers,
 etc.) will be redacted from these files in order to protect individual privacy
 while maintaining corporate accountability. Complete, unredacted copies are
 retained separately for legal and regulatory purposes.
+
+## Note on corrections
+
+Some (or most) of the emails have been corrected after the fact. This is mostly
+to do with me messing up the Markdown syntax, leading to bad rendering, and
+because I thought it'd be a good idea to include the full timestamp in each
+file. The originals are preserved in this directory, just without the
+`-corrected` suffix, along with their timestamps, in order to prove their age.
