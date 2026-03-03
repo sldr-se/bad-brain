@@ -43,6 +43,15 @@ materially unchanged, except concerning redactions, as mentioned below.
    --- do you or do you not send network traffic --- and asking why supposed
    "license verification" is disabled when a telemetry opt-out is used. Reiterates
    that the DSAR is alive and the clock is ticking.
+6. [2026-03-02 - Longform](./260302-2215-dsar-longform-reply.md). Memvid
+   replied with great gusto. They now admit to having a sweeping analytics
+   framework but claim legitimate interest for processing. They also provide
+   source code excerpts from a `memvid-projects` repository that doesn't seem to
+   be publicly available --- despite the Apache 2.0 licensing and despite
+   previously claiming such code was "proprietary implementation details" that
+   could not be disclosed. The reply notably still doesn't contain the data I
+   requested, only backpedaling regarding whether any such data may or may not
+   exist.
 
 ## Note on redactions
 
