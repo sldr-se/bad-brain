@@ -2,7 +2,8 @@ From: Memvid Company <contact@memvid.com>
 
 To: J. A. Hultén <jonas@sldr.se>
 
-Subject: Re: GDPR Data Subject Access Request
+Subject: GDPR Article 15 Request – Clarification and Supplementary Response
+(Memvid CLI / Local Tools)
 
 Timestamp: 2026-03-02T22:15:22Z
 
