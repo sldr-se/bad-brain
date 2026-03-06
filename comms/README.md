@@ -52,6 +52,11 @@ materially unchanged, except concerning redactions, as mentioned below.
    could not be disclosed. The reply notably still doesn't contain the data I
    requested, only backpedaling regarding whether any such data may or may not
    exist.
+7. [2026-03-06 - Oh rly?](./260306-1418-dsar-oh-really.md). My just as long
+   reply to Memvid, laying out how you can't just conjure legitimate interest
+   out of thin air, and how you need to inform the data subject _ahead_ of
+   collection that collection is going to happen. Also let them know that this has
+   already been reported to the Swedish DPA.
 
 ## Note on redactions
 
