@@ -3707,3 +3707,15 @@ date,package,downloads_last_week
 2026-08-03T01:53:11Z,@memvid/sdk-win32-x64-msvc,27
 2026-08-03T01:53:11Z,@memvid/sdk-linux-arm64-gnu,15
 2026-08-03T01:53:11Z,@memvid/cli-linux-arm64,9
+2026-08-03T14:18:16Z,@memvid/sdk,6354
+2026-08-03T14:18:16Z,memvid-cli,738
+2026-08-03T14:18:16Z,memvid-mind,4
+2026-08-03T14:18:16Z,@memvid/cli-darwin-arm64,25
+2026-08-03T14:18:16Z,@memvid/cli-win32-x64,21
+2026-08-03T14:18:16Z,@memvid/cli-linux-x64,754
+2026-08-03T14:18:16Z,@memvid/sdk-darwin-arm64,44
+2026-08-03T14:18:16Z,@memvid/sdk-darwin-x64,22
+2026-08-03T14:18:16Z,@memvid/sdk-linux-x64-gnu,6275
+2026-08-03T14:18:16Z,@memvid/sdk-win32-x64-msvc,26
+2026-08-03T14:18:16Z,@memvid/sdk-linux-arm64-gnu,14
+2026-08-03T14:18:16Z,@memvid/cli-linux-arm64,9
